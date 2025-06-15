@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>RK Homes | Luxury Real Estate & Property Development</title>
+    <!-- Preload critical hero image -->
+    <link rel="preload" href="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3" as="image">
+    <!-- Inline critical CSS for above-the-fold content -->
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            font-family: 'Arial', sans-serif;
+            position: relative;
+            will-change: scroll-position;
+        }
+        .hero-section {
+            width: 100%;
+            min-height: 100vh;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            color: #fff;
+        }
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero-subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        .dynamic-text {
+            color: #fff;
+            font-weight: 600;
+            display: inline-block;
+            position: relative;
+        }
+        .dynamic-text::after {
+            content: '';
+            position: absolute;
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 1em;
+            background: #fff;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        .scroll-indicator i {
+            font-size: 2rem;
+            color: white;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(18px); }
+            60% { transform: translateY(8px); }
+        }
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .hero-subtitle { font-size: 1.1rem; }
+            .hero-section { padding: 30px 0; }
+        }
+        @media (max-width: 576px) {
+            .contact-info, .contact-form, .about-content {
+                text-align: center;
+            }
+            .contact-action-cards {
+                flex-direction: row !important;
+                gap: 0.5rem !important;
+                justify-content: center;
+            }
+            .contact-action-card {
+                max-width: calc(33.33% - 0.5rem) !important;
+                width: auto !important;
+                min-width: 0;
+                margin: 0 !important;
+                min-height: 80px;
+                height: auto;
+                padding: 0.8rem 0.3rem;
+                font-size: 0.85rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .contact-action-card i {
+                font-size: 1.5rem;
+                margin-bottom: 0.2rem;
+            }
+            .call-action-card {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 0.5rem;
+                font-size: 0.85rem;
+                padding: 0.8rem;
+                flex-wrap: wrap;
+            }
+            .call-action-card i {
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+            .call-action-card .mb-2 {
+                margin-bottom: 0.5rem !important;
+            }
+            .call-action-card .btn {
+                width: 100% !important;
+                padding: 0.5rem 0.8rem;
+                font-size: 0.85rem;
+            }
+        }
+        .rk-animated {
+            display: inline-block;
+            font-weight: 900;
+            font-size: 1.2em;
+            color: #FFD700;
+            letter-spacing: 0.05em;
+            margin-right: 0.25em;
+            position: relative;
+            background: linear-gradient(90deg, #FFD700 60%, #fffbe6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rk-shimmer 2.5s infinite linear;
+        }
+        @keyframes rk-shimmer {
+            0% { filter: brightness(1.1) drop-shadow(0 0 2px #fffbe6); }
+            40% { filter: brightness(1.5) drop-shadow(0 0 8px #FFD700); }
+            60% { filter: brightness(1.7) drop-shadow(0 0 12px #fffbe6); }
+            100% { filter: brightness(1.1) drop-shadow(0 0 2px #fffbe6); }
+        }
+        .rk-loader-animated {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 0.1em;
+            color: #FFD700;
+            background: linear-gradient(90deg, #FFD700 60%, #fffbe6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rk-shimmer 2s infinite linear, rk-bounce 1.2s infinite alternate;
+            text-shadow: 0 0 18px #fffbe6, 0 0 8px #FFD700;
+            display: inline-block;
+        }
+        @keyframes rk-bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-18px); }
+        }
+    </style>
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <style>
+        /* Non-critical CSS */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, transform;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .inquiry-section {
+            padding: 80px 0;
+            background: #1a1a1a;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-blur-bg, .gallery-blur-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-size: cover;
+            background-position: center;
+            filter: blur(16px) brightness(0.7);
+            will-change: background-image;
+        }
+        .contact-info {
+            background: #212529;
+            color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            padding: 30px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .contact-info * {
+            color: #fff !important;
+        }
+        .contact-form {
+            padding: 30px;
+            background: #212529;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-top: 0;
+        }
+        .contact-form-title {
+            text-align: left;
+            margin-bottom: 2rem;
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        .form-floating {
+            margin-bottom: 1.2rem;
+        }
+        .form-floating > .form-control {
+            padding: 1rem 0.75rem;
+            height: calc(3.5rem + 2px);
+            line-height: 1.25;
+            border: 2px solid #fff;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background-color: #343a40;
+            color: #fff;
+        }
+        .form-floating > .form-control:focus {
+            border-color: #fff;
+            box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.1);
+        }
+        .form-floating > label {
+            padding: 1rem 0.75rem;
+            color: #adb5bd;
+        }
+        .form-floating > textarea.form-control {
+            height: 120px;
+            resize: none;
+        }
+        .submit-btn {
+            background: linear-gradient(135deg, #01191d, #04242a);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(1, 25, 29, 0.2);
+            background: linear-gradient(135deg, #04242a, #01191d);
+        }
+        .form-divider {
+            text-align: center;
+            margin: 2rem 0;
+            position: relative;
+            color: #adb5bd;
+        }
+        .form-divider::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #495057;
+        }
+        .form-divider::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: #495057;
+        }
+        .form-divider span {
+            background: #212529;
+            padding: 0 1rem;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 1;
+            font-weight: 500;
+        }
+        .social-links a {
+            margin: 10px;
+            font-size: 24px;
+            color: #fff;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .social-links a:hover {
+            transform: translateY(-5px);
+            color: #6e8efb;
+        }
+        .contact-action-cards {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .contact-action-card {
+            color: #fff;
+            transition: transform 0.18s ease, color 0.18s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: none;
+        }
+        .contact-action-card i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-action-card:hover {
+            transform: translateY(-4px);
+            color: #6e8efb;
+            text-decoration: none;
+        }
+        .contact-action-card.call i {
+            color: #28a745;
+        }
+        .contact-action-card.whatsapp i {
+            color: #25D366;
+        }
+        .contact-action-card.instagram i {
+            background: linear-gradient(135deg, #fd5949, #d6249f, #285AEB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .gallery-section {
+            padding: 40px 0;
+            background: #fff;
+            position: relative;
+        }
+        .services-section, .about-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        .service-card {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        .service-content {
+            padding: 25px;
+        }
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-content {
+            padding: 30px;
+        }
+        .about-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #6e8efb;
+        }
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            background: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .fade-up, .fade-left, .fade-right {
+            opacity: 0;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up { transform: translateY(30px); }
+        .fade-left { transform: translateX(-30px); }
+        .fade-right { transform: translateX(30px); }
+        .fade-up.active, .fade-left.active, .fade-right.active {
+            opacity: 1;
+            transform: translate(0);
+        }
+        .btn-instagram {
+            background: linear-gradient(135deg, #fd5949, #d6249f, #285AEB);
+            color: #fff;
+            border: none;
+        }
+        .btn-instagram:hover {
+            filter: brightness(1.1);
+        }
+        .call-action-card .mb-2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #01191d;
+            margin-bottom: 1.5rem !important;
+        }
+        .call-action-card .btn {
+            font-size: 1.2rem;
+            padding: 0.8rem 2rem;
+            border-radius: 10px;
+            background: #022125;
+            border-color: #01191d;
+            color: #fff;
+            transition: background 0.2s;
+            white-space: nowrap;
+        }
+        .call-action-card .btn-primary {
+            background: linear-gradient(135deg, #022125, #042c31);
+        }
+        .call-action-card .btn-primary:hover {
+            background: linear-gradient(135deg, #022125, #042c31);
+        }
+        .call-action-card .btn:hover {
+            background: #042c31;
+        }
+        @media (max-width: 576px) {
+            .call-action-card .btn {
+                width: 100% !important;
+                padding: 0.5rem 0.8rem;
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- RK Loader -->
+    <div id="rk-loader" style="position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:2000;background:#111;display:flex;align-items:center;justify-content:center;transition:opacity 0.5s;">
+        <span class="rk-loader-animated">RK</span>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3');">
+        <div class="hero-content">
+            <h1 class="hero-title animate-on-scroll">
+                <span class="rk-animated">RK</span>
+                <span class="dynamic-text">Home</span>
+            </h1>
+            <p class="hero-subtitle animate-on-scroll">Where Luxury Meets Comfort</p>
+            <div class="scroll-indicator" id="scrollArrow" style="bottom: 40px; cursor: pointer;">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="inquiry-section fade-in-section" id="contactSection">
+        <div class="contact-blur-bg" id="contactBlurBg"></div>
+        <div class="container">
+            <h2 class="text-center mb-5 animate-on-scroll">Get in Touch</h2>
+            <div class="row g-0 align-items-center">
+                <div class="col-md-6 px-0">
+                    <div class="contact-info animate-on-scroll">
+                        <h3>Connect With Us</h3>
+                        <p class="mb-4">We'd love to hear from you! Reach out through our social media or the contact form.</p>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/share/151mjYRGRMr/?mibextid=wwXIfr" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                            <a href="https://instagram.com/rkhomesofficial__" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <!-- <a href="https://twitter.com/yourpage" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a> -->
+                            <!-- <a href="https://linkedin.com/yourpage" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a> -->
+                        </div>
+                        <div class="mt-4">
+                            <h4>Contact Information</h4>
+                            <p><i class="fas fa-phone me-2"></i> +91 9220903197</p>
+                            <p><i class="fas fa-envelope me-2"></i> Rkpropertiesandconstruction11@gmail.com</p>
+                            <p><i class="fas fa-map-marker-alt me-2"></i> E-5, Sector 85, Faridabad Haryana, 121002</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 px-0">
+                    <br>
+                    <div class="contact-form animate-on-scroll" id="contactActionBox">
+                        <h3 class="contact-form-title">Send us a Message</h3>
+                        <form id="mainContactForm" method="post" action="{% url 'submit_inquiry' %}">
+                            {% csrf_token %}
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="contactName" name="name" placeholder="Your Name" required>
+                                <label for="contactName">Your Name</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="tel" class="form-control" id="contactPhone" name="phone" placeholder="Phone Number" required>
+                                <label for="contactPhone">Phone Number</label>
+                            </div>
+                            <div class="form-floating">
+                                <input type="email" class="form-control" id="contactEmail" name="email" placeholder="Email Address" required>
+                                <label for="contactEmail">Email Address</label>
+                            </div>
+                            <div class="form-floating">
+                                <textarea class="form-control" id="contactMessage" name="message" placeholder="Your Message" required></textarea>
+                                <label for="contactMessage">Your Message</label>
+                            </div>
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                        
+                        <div class="form-divider">
+                            <span>OR</span>
+                        </div>
+
+                        <div id="contactActionCards" class="contact-action-cards">
+                            <a href="tel:+919220903197" class="contact-action-card call" aria-label="Call Contact">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                            <a href="https://wa.me/919220903197?text=Hello%20RK%20Homes%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20properties%20and%20services.%20I%20visited%20your%20website%20and%20would%20like%20to%20get%20in%20touch%20regarding%20a%20potential%20inquiry." target="_blank" class="contact-action-card whatsapp" aria-label="WhatsApp Contact">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="https://instagram.com/rkhomesofficial__" target="_blank" class="contact-action-card instagram" aria-label="Instagram Contact">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="gallery-blur-bg" id="galleryBlurBg"></div>
+        <div class="container">
+            <h2 class="text-center animate-on-scroll">Let's Socialize</h2>
+            <div class="row" id="gallery">
+                <div class="elfsight-app-ae5cbc03-94ed-4f62-a213-b3c5997dbde5" data-elfsight-app-lazy></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section fade-in-section">
+        <div class="container">
+            <h2 class="text-center mb-5 fade-up">Our Services</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4 fade-up">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img id="serviceImg1" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3" alt="Property Management" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3>Property Management</h3>
+                            <p>Comprehensive property management services ensuring your investments are well-maintained.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 fade-up" style="transition-delay: 0.2s">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img id="serviceImg2" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3" alt="Real Estate Investment" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3>Real Estate Investment</h3>
+                            <p>Expert guidance in real estate investments for maximum returns.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 fade-up" style="transition-delay: 0.4s">
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img id="serviceImg3" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3" alt="Property Development" loading="lazy">
+                        </div>
+                        <div class="service-content">
+                            <h3>Property Development</h3>
+                            <p>End-to-end property development services from concept to completion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section fade-in-section">
+        <div class="container">
+            <h2 class="text-center mb-5 fade-up">Know About Us</h2>
+
+            <div class="row align-items-center">
+                <div class="col-md-6 fade-left">
+                    <div class="about-image">
+                        <img id="aboutImg" src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3" alt="About Us" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-md-6 fade-right">
+                    <div class="about-content">
+                        <h2>About Us</h2>
+                        <p>We are a leading real estate company dedicated to providing exceptional service and creating lasting value.</p>
+                        <p>Our team helps you find the perfect property that meets your needs and exceeds expectations.</p>
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Properties</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">1000+</div>
+                                <div class="stat-label">Happy Clients</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Years Experience</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/919220903197?text=Hello%20RK%20Homes%2C%20I%20am%20interested%20in%20learning%20more%20about%20your%20properties%20and%20services.%20I%20visited%20your%20website%20and%20would%20like%20to%20get%20in%20touch%20regarding%20a%20potential%20inquiry." class="whatsapp-btn" target="_blank" aria-label="WhatsApp Chat">
+        <i class="fab fa-whatsapp fa-2x"></i>
+    </a>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 RK Homes</p>
+            <p>Phone: +91 9220903197 | Address: E-5, Sector 85, Faridabad Haryana, 121002</p>
+            <div class="mapouter">
+                <iframe width="100%" height="200" src="https://maps.google.com/maps?q=E-5%2C%20Sector%2085%2C%20Faridabad%20Haryana%2C%20121002&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" loading="lazy" title="Faridabad Location"></iframe>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Django messages display -->
+    <div id="django-messages" style="position:fixed;top:20px;right:20px;z-index:1050;max-width:300px;">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <!-- Defer JavaScript -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/instafeed.js/2.0.0/instafeed.min.js"></script>
+    <script defer src="https://static.elfsight.com/platform/platform.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // RK Loader fade out
+            const rkLoader = document.getElementById('rk-loader');
+            if (rkLoader) {
+                window.addEventListener('load', () => {
+                    rkLoader.style.opacity = '0';
+                    setTimeout(() => { rkLoader.style.display = 'none'; }, 600);
+                });
+            }
+            // Scroll Animation
+            const animateElements = document.querySelectorAll('.animate-on-scroll, .fade-up, .fade-left, .fade-right');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible', 'active');
+                    } else {
+                        entry.target.classList.remove('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+            animateElements.forEach(element => observer.observe(element));
+
+            // Hero Background Carousel
+            const heroImages = [
+                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3',
+                'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3',
+                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3'
+            ];
+            let currentImageIndex = 0;
+            const heroSection = document.querySelector('.hero-section');
+            function changeHeroBackground() {
+                heroSection.style.backgroundImage = 'url(' + heroImages[currentImageIndex] + ')';
+                currentImageIndex = (currentImageIndex + 1) % heroImages.length;
+            }
+            setInterval(changeHeroBackground, 4000);
+
+            // Contact and Gallery Blur Background
+            const blurImages = [
+                'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80',
+            'https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=800&q=80'
+            ];
+            let blurIndex = 0;
+            const contactBlurBg = document.getElementById('contactBlurBg');
+            const galleryBlurBg = document.getElementById('galleryBlurBg');
+            function changeBlurBg() {
+                const url = 'url(' + blurImages[blurIndex] + ')';
+                contactBlurBg.style.backgroundImage = url;
+                galleryBlurBg.style.backgroundImage = url;
+                blurIndex = (blurIndex + 1) % blurImages.length;
+            }
+            setInterval(changeBlurBg, 4000);
+            changeBlurBg();
+
+            // Dynamic Text Animation
+            const dynamicTexts = ['Home', 'Property', 'Investment'];
+            let textIndex = 0;
+            const dynamicTextElement = document.querySelector('.dynamic-text');
+            function updateDynamicText() {
+                dynamicTextElement.style.opacity = '0';
+                setTimeout(() => {
+                    dynamicTextElement.textContent = dynamicTexts[textIndex];
+                    dynamicTextElement.style.opacity = '1';
+                    textIndex = (textIndex + 1) % dynamicTexts.length;
+                }, 500);
+            }
+            setInterval(updateDynamicText, 3000);
+            updateDynamicText();
+
+            // Service and About Image Carousel
+            const serviceImages = [
+                ['https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3', 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80'],
+                ['https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3', 'https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80'],
+                ['https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3', 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80']
+            ];
+            const aboutImages = [
+                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3',
+                'https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80'
+            ];
+            let serviceIdx = [0, 0, 0];
+            let aboutIdx = 0;
+            function rotateImages() {
+                document.getElementById('serviceImg1').src = serviceImages[0][serviceIdx[0]];
+                document.getElementById('serviceImg2').src = serviceImages[1][serviceIdx[1]];
+                document.getElementById('serviceImg3').src = serviceImages[2][serviceIdx[2]];
+                document.getElementById('aboutImg').src = aboutImages[aboutIdx];
+                serviceIdx = serviceIdx.map((idx, i) => (idx + 1) % serviceImages[i].length);
+                aboutIdx = (aboutIdx + 1) % aboutImages.length;
+            }
+            setInterval(rotateImages, 4000);
+
+            // Scroll-indicator arrow click scrolls to contact section
+            const scrollArrow = document.getElementById('scrollArrow');
+            if (scrollArrow) {
+                scrollArrow.addEventListener('click', function() {
+                    const contactSection = document.getElementById('contactSection');
+                    if (contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
