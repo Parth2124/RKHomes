@@ -255,6 +255,14 @@
             width: 100%;
             z-index: 1000;
             transition: all 0.3s ease;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.5) 0%, rgba(44, 62, 80, 0.5) 100%);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .header.scrolled {
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(44, 62, 80, 0.7) 100%);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
         .header.scrolled .rk-animated {
             animation: shimmer 2s infinite, bounce 1.2s infinite alternate;
@@ -292,6 +300,35 @@
             -webkit-text-fill-color: transparent;
             animation: shimmer 2s infinite, bounce 1.2s infinite alternate;
         }
+        .blog-carousel {
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .blog-slide {
+            flex: 0 0 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .blog-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s ease;
+        }
+        .blog-nav:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-50%) scale(1.1);
+        }
+        .blog-nav-left { left: 10px; }
+        .blog-nav-right { right: 10px; }
     </style>
 </head>
 <body>
@@ -317,7 +354,7 @@
             <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3');"></div>
             <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3');"></div>
             <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3');"></div>
-            <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80');"></div>
+            <div class="hero-slide" style="background-image: url('https://media.istockphoto.com/id/508372960/photo/render-evening-house.jpg?s=2048x2048&w=is&k=20&c=ODN3nMCTr_qqw4GKWCW8RWqsSz8ysfJJSaTBXXE58fc=');"></div>
             <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80');"></div>
         </div>
         <div class="hero-content glass-effect">
@@ -341,27 +378,27 @@
                 <div class="about-slides flex" id="aboutSlides">
                     <div class="about-slide glass-effect p-6 animate-on-scroll">
                         <h3 class="text-2xl font-bold mb-4">Our Vision</h3>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim assumenda similique exercitationem omnis cum tempore consequuntur ex itaque provident facere odit culpa sint, voluptas id quidem laboriosam a consectetur beatae ab? Provident repellendus repudiandae odit nihil aut quisquam repellat nesciunt, deserunt modi, saepe sed sint non impedit voluptatem laborum magni?To redefine luxury living by creating spaces that blend elegance, comfort, and sustainability.</p>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt officia deleniti quod sit exercitationem nam possimus quibusdam dicta praesentium quaerat quidem, ipsa harum voluptatem distinctio.</p>
                         <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3" alt="Vision" class="w-full h-64 object-cover rounded-lg">
                     </div>
                     <div class="about-slide glass-effect p-6 animate-on-scroll">
                         <h3 class="text-2xl font-bold mb-4">Our Expertise</h3>
-                        <p class="mb-4">Over 15 years of crafting premium properties with meticulous attention to detail.</p>
-                        <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?auto=format&fit=crop&w=800&q=80" alt="Expertise" class="w-full h-64 object-cover rounded-lg">
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur doloribus voluptas labore a animi architecto! Itaque aliquam alias porro aliquid totam distinctio quos enim blanditiis.</p>
+                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3" alt="Expertise" class="w-full h-64 object-cover rounded-lg">
                     </div>
                     <div class="about-slide glass-effect p-6 animate-on-scroll">
                         <h3 class="text-2xl font-bold mb-4">Client-Centric Approach</h3>
-                        <p class="mb-4">We prioritize your needs, ensuring every project reflects your unique vision.</p>
+                        <p class="mb-4">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam asperiores deserunt repudiandae voluptates ratione, quos, corporis harum obcaecati unde corrupti perspiciatis nulla, dolore beatae rem.</p>
                         <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3" alt="Client Approach" class="w-full h-64 object-cover rounded-lg">
                     </div>
                     <div class="about-slide glass-effect p-6 animate-on-scroll">
                         <h3 class="text-2xl font-bold mb-4">Sustainable Living</h3>
-                        <p class="mb-4">Eco-friendly designs that promote sustainability without compromising luxury.</p>
-                        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Sustainability" class="w-full h-64 object-cover rounded-lg">
+                        <p class="mb-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magnam autem mollitia, esse consectetur beatae, voluptatum numquam consequatur dignissimos optio praesentium dolorem. Veritatis ullam tenetur repudiandae.</p>
+                        <img src="https://media.istockphoto.com/id/508372960/photo/render-evening-house.jpg?s=2048x2048&w=is&k=20&c=ODN3nMCTr_qqw4GKWCW8RWqsSz8ysfJJSaTBXXE58fc=" alt="Sustainability" class="w-full h-64 object-cover rounded-lg">
                     </div>
                     <div class="about-slide glass-effect p-6 animate-on-scroll">
                         <h3 class="text-2xl font-bold mb-4">Community Impact</h3>
-                        <p class="mb-4">Building communities that foster connection, growth, and well-being.</p>
+                        <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos, impedit magni debitis, vitae rerum sapiente quibusdam dolorum nesciunt ex perferendis maiores officiis eum? Distinctio, unde?</p>
                         <img src="https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?auto=format&fit=crop&w=800&q=80" alt="Community" class="w-full h-64 object-cover rounded-lg">
                     </div>
                 </div>
@@ -501,37 +538,53 @@
         <div class="blog-blur-bg" id="blogBlurBg"></div>
         <div class="container mx-auto px-4">
             <h2 class="text-center mb-8 animate-on-scroll">Our Latest Insights</h2>
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="blog-card glass-effect animate-on-scroll">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3" alt="Blog 1" loading="lazy">
+            <div class="blog-carousel relative">
+                <div class="blog-slides flex" id="blogSlides">
+                    <div class="blog-slide glass-effect p-6 animate-on-scroll">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/2">
+                                <h3 class="text-2xl font-bold mb-4">Top Trends in Luxury Real Estate</h3>
+                                <p class="mb-4">Explore the latest trends shaping the luxury property market in 2025. From sustainable living to smart home technology, discover what's driving the future of luxury real estate.</p>
+                                <a href="#" class="text-yellow-400 hover:underline inline-flex items-center">
+                                    Read More <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3" alt="Blog 1" class="w-full h-64 object-cover rounded-lg">
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Top Trends in Luxury Real Estate</h3>
-                        <p class="mb-4">Explore the latest trends shaping the luxury property market in 2025.</p>
-                        <a href="#" class="text-yellow-400 hover:underline">Read More</a>
+                    <div class="blog-slide glass-effect p-6 animate-on-scroll">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/2">
+                                <h3 class="text-2xl font-bold mb-4">Investing in Real Estate: A Guide</h3>
+                                <p class="mb-4">Learn how to maximize returns with smart property investments. Our comprehensive guide covers everything from market analysis to portfolio diversification strategies.</p>
+                                <a href="#" class="text-yellow-400 hover:underline inline-flex items-center">
+                                    Read More <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3" alt="Blog 2" class="w-full h-64 object-cover rounded-lg">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="blog-slide glass-effect p-6 animate-on-scroll">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/2">
+                                <h3 class="text-2xl font-bold mb-4">Sustainable Living in Modern Homes</h3>
+                                <p class="mb-4">Discover eco-friendly features in our latest property developments. Learn how sustainable design can enhance your living experience while reducing environmental impact.</p>
+                                <a href="#" class="text-yellow-400 hover:underline inline-flex items-center">
+                                    Read More <i class="fas fa-arrow-right ml-2"></i>
+                                </a>
+                            </div>
+                            <div class="md:w-1/2">
+                                <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3" alt="Blog 3" class="w-full h-64 object-cover rounded-lg">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="blog-card glass-effect animate-on-scroll">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?ixlib=rb-4.0.3" alt="Blog 2" loading="lazy">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Investing in Real Estate: A Guide</h3>
-                        <p class="mb-4">Learn how to maximize returns with smart property investments.</p>
-                        <a href="#" class="text-yellow-400 hover:underline">Read More</a>
-                    </div>
-                </div>
-                <div class="blog-card glass-effect animate-on-scroll">
-                    <div class="blog-image">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3" alt="Blog 3" loading="lazy">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-xl font-bold mb-2">Sustainable Living in Modern Homes</h3>
-                        <p class="mb-4">Discover eco-friendly features in our latest property developments.</p>
-                        <a href="#" class="text-yellow-400 hover:underline">Read More</a>
-                    </div>
-                </div>
+                <div class="blog-nav blog-nav-left"><i class="fas fa-chevron-left"></i></div>
+                <div class="blog-nav blog-nav-right"><i class="fas fa-chevron-right"></i></div>
             </div>
         </div>
     </section>
@@ -802,6 +855,33 @@
             document.getElementById('scrollArrow').addEventListener('click', () => {
                 document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
             });
+
+            // Blog Carousel
+            const blogSlides = document.getElementById('blogSlides');
+            const blogSlideItems = blogSlides.children;
+            let currentBlogSlide = 0;
+            const blogNavLeft = document.querySelector('.blog-nav-left');
+            const blogNavRight = document.querySelector('.blog-nav-right');
+
+            function updateBlogCarousel() {
+                blogSlides.style.transform = `translateX(-${currentBlogSlide * 100}%)`;
+            }
+
+            blogNavLeft.addEventListener('click', () => {
+                currentBlogSlide = (currentBlogSlide - 1 + blogSlideItems.length) % blogSlideItems.length;
+                updateBlogCarousel();
+            });
+
+            blogNavRight.addEventListener('click', () => {
+                currentBlogSlide = (currentBlogSlide + 1) % blogSlideItems.length;
+                updateBlogCarousel();
+            });
+
+            // Auto-advance blog carousel
+            setInterval(() => {
+                currentBlogSlide = (currentBlogSlide + 1) % blogSlideItems.length;
+                updateBlogCarousel();
+            }, 5000);
         });
     </script>
 </body>
