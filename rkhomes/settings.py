@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = ['RKHomes.onrender.com']
+ALLOWED_HOSTS = ['RKHomes.onrender.com','127.0.0.1', 'localhost']
 
 
 
@@ -138,6 +138,6 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'classickcode@gmail.com'  # Replace with your sending email address
-EMAIL_HOST_PASSWORD = 'fyls whmg djir vbzl' # Replace with your email password or app-specific password
-DEFAULT_FROM_EMAIL = 'classickcode@gmail.com' # Replace with your sending email address
+EMAIL_HOST_USER = 'rkpropertiesandconstruction11@gmail.com'  # Replace with your sending email address
+EMAIL_HOST_PASSWORD = 'cljy sdnv pnuk tukl' # Replace with your email password or app-specific password
+DEFAULT_FROM_EMAIL = 'rkpropertiesandconstruction11@gmail.com' # Replace with your sending email address
